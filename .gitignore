@@ -1,0 +1,30 @@
+# ⬇️ Python & Django
+backend/__pycache__/
+backend/**/*.pyc
+backend/**/*.pyo
+backend/**/*.pyd
+backend/.env
+backend/db.sqlite3
+backend/media/
+backend/staticfiles/
+
+# ⬇️ Virtual environment
+env/
+venv/
+.venv/
+
+# ⬇️ VSCode settings (اختیاری ولی مفید)
+.vscode/
+
+# ⬇️ React (Node.js) 
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.vite/
+
+# ⬇️ OS generated
+.DS_Store
+Thumbs.db
+
+# ⬇️ Logs
+*.log
