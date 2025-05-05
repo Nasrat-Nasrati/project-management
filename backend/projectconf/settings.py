@@ -169,6 +169,10 @@ SIMPLE_JWT = {
 
 CORS_ALLOW_ALL_ORIGINS = True  # Or use CORS_ALLOWED_ORIGINS to restrict
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
