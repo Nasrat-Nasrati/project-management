@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'projects',
     'rest_framework',
     'accounts',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # this is my custom middleware 
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'projectconf.urls'
@@ -162,6 +166,14 @@ SIMPLE_JWT = {
 }
 
 # used for sedding email address
+
+CORS_ALLOW_ALL_ORIGINS = True  # Or use CORS_ALLOWED_ORIGINS to restrict
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
+
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 
