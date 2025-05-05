@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # my custom django application
     'projects',
     'rest_framework',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,43 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Ensures that only authenticated users can access APIs
+    ]
+}
+
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),  # Token expires in 5 minutes
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),   # Refresh token expires in 1 day
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,  # uses your Django secret key
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
+# used for sedding email address
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+
+#my email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ehnn2020@gmail.com'  # 👈 Your Gmail
+EMAIL_HOST_PASSWORD = 'sdnw kqpz dino neqd'  # 👈 The 16-digit App Password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
